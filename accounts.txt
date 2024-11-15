@@ -1,0 +1,14 @@
+1,1,Nguyen_Van_A,nguyenvana,pass123,nguyenvana@example.com,0123456789,Ha_Noi,Ba_Dinh,Ha_Noi,Viet_Nam
+2,2,Tran_Thi_B,tranthib,password123,tranthib@example.com,0987654321,TP_Ho_Chi_Minh,Quan_1,TP_Ho_Chi_Minh,Viet_Nam
+3,2,Le_Van_C,levanc,mypassword,levanc@example.com,0112233445,Da_Nang,Hai_Chau,Da_Nang,Viet_Nam
+4,1,Pham_Thi_D,phamthid,securepass,phamthid@example.com,0123321122,Can_Tho,Ninh_Kieu,Can_Tho,Viet_Nam
+5,2,Vu_Van_E,vuvane,password1,vuvane@example.com,0223344556,Hai_Phong,Le_Chan,Hai_Phong,Viet_Nam
+6,2,Hoang_Thi_F,hoangthif,lindapass,hoangthif@example.com,0334455667,Nha_Trang,Thanh_Xuan,Nha_Trang,Viet_Nam
+7,2,Nguyen_Van_G,nguyenvang,jamespass,nguyenvang@example.com,0445566778,Binh_Duong,Thu_Dau_Mot,Binh_Duong,Viet_Nam
+8,1,Nguyen_Thi_H,nguyenthih,patpassword,nguyenthih@example.com,0556677889,Vung_Tau,Vung_Tau,Vung_Tau,Viet_Nam
+9,2,Le_Van_I,levani,robertpass,levani@example.com,0667788990,Bien_Hoa,Tan_Phong,Bien_Hoa,Viet_Nam
+10,2,Tran_Thi_J,tranthij,jennypass,tranthij@example.com,0778899001,Bien_Hoa,Long_Binh,Bien_Hoa,Viet_Nam
+11,2,Hoang_Van_K,hoangvank,williampass,hoangvank@example.com,0889900112,Hue,Phu_Hoi,Hue,Viet_Nam
+12,1,Vu_Thi_L,vuthil,elizpass,vuthil@example.com,0990011223,Ha_Long,Hong_Hai,Ha_Long,Viet_Nam
+13,2,user1,hahaha,password1,Xwqo0@example.com,0123456789,Vung Tau,Vung Tau,Viet Nam,Viet Nam
+14,2,user2,hahaha,password2,Xwqo0@example.com,0123456789,Vung Tau,Vung Tau,Viet Nam,Viet Nam
