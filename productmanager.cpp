@@ -2,31 +2,31 @@
 using namespace std;
 
 ProductManager::ProductManager(const string& filename){
-    products = file_manager.loadProductFromFile(filename);
+    products = FileManager::loadProductFromFile(filename);
 }
 
 ProductManager::~ProductManager(){
-    file_manager.saveProductToFile("products.txt", products);
+    FileManager::saveProductToFile("products.txt", products);
     for(Product* product : products){
         delete product;
     }
 }
 
 void ProductManager::addProduct(Product* product, const string& filename){
-    products = file_manager.loadProductFromFile(filename);
+    products = FileManager::loadProductFromFile(filename);
     int newId = getMaxProductId() + 1;
     product->setId(newId);
     products.push_back(product);
-    file_manager.saveProductToFile(filename, products);
+    FileManager::saveProductToFile(filename, products);
 }
 
 void ProductManager::updateProduct(int productId, const char* breed, double price, const string& filename){
-    products = file_manager.loadProductFromFile(filename);
+    products = FileManager::loadProductFromFile(filename);
     for(auto& product : products){
         if(product->getId() == productId){
             product->updateBreed(breed);
             product->updatePrice(price);
-            file_manager.saveProductToFile(filename, products);
+            FileManager::saveProductToFile(filename, products);
             return;
         }
     }
@@ -34,20 +34,20 @@ void ProductManager::updateProduct(int productId, const char* breed, double pric
 }
 
 void ProductManager::deleteProduct(int productId, const string& filename){
-    products = file_manager.loadProductFromFile(filename);
+    products = FileManager::loadProductFromFile(filename);
     auto it = remove_if(products.begin(), products.end(), [productId](Product* product){
         return product->getId() == productId;
     });
     if(it != products.end()){
         products.erase(it, products.end());
-        file_manager.saveProductToFile(filename, products);
+        FileManager::saveProductToFile(filename, products);
     } else {
         cout<<"Khong tim thay san pham co id "<<productId<<endl;
     }
 }
 
 Product* ProductManager::getProduct(int productId, const string& filename){
-    products = file_manager.loadProductFromFile(filename);
+    products = FileManager::loadProductFromFile(filename);
     for(Product* product : products){
         if(product->getId() == productId){
             return product;
@@ -58,7 +58,7 @@ Product* ProductManager::getProduct(int productId, const string& filename){
 }   
 
 vector<Product*> ProductManager::searchProduct(double price, const string& filename){
-    products = file_manager.loadProductFromFile(filename);
+    products = FileManager::loadProductFromFile(filename);
     vector<Product*> foundProducts;
     for(Product* product : products){
         if(product->getPrice() <= price){
@@ -69,7 +69,7 @@ vector<Product*> ProductManager::searchProduct(double price, const string& filen
 }
 
 void ProductManager::checkStock(int productId, const string& filename){
-    products = file_manager.loadProductFromFile(filename);
+    products = FileManager::loadProductFromFile(filename);
     for(auto& product : products){
         if(product->getId() == productId && product->getQuantity() > 0){
             cout<<"San pham co id "<<productId<<" co trong kho"<<endl;
@@ -80,7 +80,7 @@ void ProductManager::checkStock(int productId, const string& filename){
 }
 
 void ProductManager::viewStock(const string &filename){
-    products = file_manager.loadProductFromFile(filename);
+    products = FileManager::loadProductFromFile(filename);
     for(auto& product : products){
         cout<<"ID: "<<product->getId()<<endl;
         cout<<"Type: "<<product->getType()<<endl;
@@ -91,14 +91,14 @@ void ProductManager::viewStock(const string &filename){
 }
 
 void ProductManager::displayAllProducts(const string &filename){
-    products = file_manager.loadProductFromFile(filename);
+    products = FileManager::loadProductFromFile(filename);
     for(auto& product : products){
         product->displayProductInfo();
     }
 }
 
 void ProductManager::displayProductInfo(const char* criteria){
-    products = file_manager.loadProductFromFile("products.txt");
+    products = FileManager::loadProductFromFile("products.txt");
     for(auto& product : products){
         if(strstr(product->getType(), criteria) != nullptr || strstr(product->getBreed(), criteria) != nullptr){
             product->displayProductInfo();
@@ -119,7 +119,7 @@ void ProductManager::displayInstockProducts(const ProductManager& manager){
 }
 
 vector<Product*> ProductManager::filterProducts(const char* criteria){
-    products = file_manager.loadProductFromFile("products.txt");
+    products = FileManager::loadProductFromFile("products.txt");
     vector<Product*> filteredProducts;
     for(auto& product : products){
         if(strstr(product->getType(), criteria) != nullptr || strstr(product->getBreed(), criteria) != nullptr){
@@ -130,7 +130,7 @@ vector<Product*> ProductManager::filterProducts(const char* criteria){
 }
 
 void ProductManager::displaySearchResults(const char* criteria, const string& filename){
-    products = file_manager.loadProductFromFile(filename);
+    products = FileManager::loadProductFromFile(filename);
     vector<Product*> filteredProducts = filterProducts(criteria);
     if(filteredProducts.empty()){
         cout<<"Khong tim thay san pham phu hop"<<endl;
@@ -147,7 +147,7 @@ void ProductManager::displaySearchResults(const char* criteria, const string& fi
 }
 
 void ProductManager::displaySearchResults(double price, const string& filename){
-    products = file_manager.loadProductFromFile(filename);
+    products = FileManager::loadProductFromFile(filename);
     vector<Product*> filteredProducts;
     for(auto& product : products){
         if(product->getPrice() <= price){
@@ -169,7 +169,7 @@ void ProductManager::displaySearchResults(double price, const string& filename){
 }
 
 int ProductManager::getMaxProductId(){
-    products = file_manager.loadProductFromFile("products.txt");
+    products = FileManager::loadProductFromFile("products.txt");
     int maxId = 0;
     for(auto& product : products){
         if(product->getId() > maxId){
